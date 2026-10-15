@@ -31,6 +31,7 @@ import AdminFiscalDashboard from "@/pages/AdminFiscalDashboard";
 import AdminFiscalDetail from "@/pages/AdminFiscalDetail";
 import AdminComparatorDashboard from "@/pages/AdminComparatorDashboard";
 import CabinetLogin from "@/pages/CabinetLogin";
+import SubsidyHelpPage from "@/pages/SubsidyHelpPage";
 
 const ThemeInjector = () => {
   const { themeColors } = siteConfig.theme;
@@ -123,15 +124,16 @@ const PageLayout = () => {
       <div className="flex min-h-screen flex-col bg-white text-gray-800">
         <Header showToast={showToast} />
 
-        <LeadCapturePopup
+        {location.pathname !== '/aide-subside' && <LeadCapturePopup
           delayMs={10000}
           storageKey="mfc_lead_popup_dismissed_v2"
-        />
+        />}
 
         <main className="flex-grow pt-20">
           <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
               <Route path="/" element={<Home showToast={showToast} />} />
+              <Route path="/aide-subside" element={<SubsidyHelpPage />} />
               <Route path="/a-propos" element={<AboutPage />} />
               <Route path="/engagement" element={<EngagementPage />} />
               <Route path="/partenaires" element={<PartnersPage />} />
