@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { supabase } from '@/lib/customSupabaseClient';
+import { supabase } from '@/lib/supabase';
 import './SubsidyHelpPage.css';
 
 const PHONE = '+41797896193';
