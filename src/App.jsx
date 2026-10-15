@@ -185,7 +185,7 @@ const PageLayout = () => {
         </main>
 
         <Footer showToast={showToast} />
-        {siteConfig.whatsapp.enabled && <WhatsAppButton />}
+        {siteConfig.whatsapp.enabled && location.pathname !== '/aide-subside' && <WhatsAppButton />}
       </div>
     </>
   );
