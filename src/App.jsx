@@ -32,6 +32,7 @@ import AdminFiscalDetail from "@/pages/AdminFiscalDetail";
 import AdminComparatorDashboard from "@/pages/AdminComparatorDashboard";
 import CabinetLogin from "@/pages/CabinetLogin";
 import SubsidyHelpPage from "@/pages/SubsidyHelpPage";
+import AdsConsent from "@/components/layout/AdsConsent";
 
 const ThemeInjector = () => {
   const { themeColors } = siteConfig.theme;
@@ -124,16 +125,19 @@ const PageLayout = () => {
       <div className="flex min-h-screen flex-col bg-white text-gray-800">
         <Header showToast={showToast} />
 
-        {location.pathname !== '/aide-subside' && <LeadCapturePopup
+        {!['/aide-subside', '/comparaison-lamal'].includes(location.pathname) && <LeadCapturePopup
           delayMs={10000}
           storageKey="mfc_lead_popup_dismissed_v2"
         />}
 
         <main className="flex-grow pt-20">
+          {['/', '/aide-subside', '/comparaison-lamal'].includes(location.pathname) && <nav aria-label="Assurance maladie et subsides" className="mfc-service-nav"><a href="/comparaison-lamal" aria-current={location.pathname === '/comparaison-lamal' ? 'page' : undefined}>Comparer ma LAMal</a><a href="/aide-subside" aria-current={location.pathname === '/aide-subside' ? 'page' : undefined}>Aide gratuite aux subsides</a></nav>}
           <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
               <Route path="/" element={<Home showToast={showToast} />} />
               <Route path="/aide-subside" element={<SubsidyHelpPage />} />
+              <Route path="/comparaison-lamal" element={<SubsidyHelpPage service="lamal" />} />
+              <Route path="/comparateur/assurance-maladie" element={<Navigate to="/comparaison-lamal" replace />} />
               <Route path="/a-propos" element={<AboutPage />} />
               <Route path="/engagement" element={<EngagementPage />} />
               <Route path="/partenaires" element={<PartnersPage />} />
@@ -185,7 +189,7 @@ const PageLayout = () => {
         </main>
 
         <Footer showToast={showToast} />
-        {siteConfig.whatsapp.enabled && location.pathname !== '/aide-subside' && <WhatsAppButton />}
+        {siteConfig.whatsapp.enabled && !['/aide-subside', '/comparaison-lamal'].includes(location.pathname) && <WhatsAppButton />}
       </div>
     </>
   );
@@ -197,6 +201,7 @@ function App() {
       <ThemeInjector />
       <ScrollToTop />
       <PageLayout />
+      <AdsConsent />
       <Toaster />
     </Router>
   );
