@@ -1,7 +1,7 @@
 const question = (id, label, options, hint) => ({ id, label, options, hint });
 export const journeys = {
   pillar: { title: 'Préparer mon avenir', subtitle: '3ᵉ pilier & prévoyance', icon: '🌱', cta: 'Faire mon bilan 3ᵉ pilier', link: '/assurances/particulier/3eme-pilier', linkLabel: 'Comprendre le 3ᵉ pilier', goals: ['Commencer à épargner', 'Préparer ma retraite', 'Comprendre les avantages fiscaux', 'Vérifier mon contrat actuel'] },
-  health: { title: 'Faire le point sur ma LAMal', subtitle: 'Assurance maladie', icon: '♡', cta: 'Faire le point sur ma LAMal', link: '/comparaison-lamal', linkLabel: 'Accéder au parcours LAMal', goals: ['Comparer mes primes', 'Revoir mes couvertures', 'Première assurance en Suisse', 'Me renseigner sur les subsides'] },
+  health: { title: 'Faire le point sur ma LAMal', subtitle: 'Assurance maladie', icon: '♡', cta: 'Faire le point sur ma LAMal', link: '/comparaison-lamal', linkLabel: 'Accéder au parcours LAMal', goals: ['Comparer mes primes', 'Revoir mes couvertures', 'Première assurance en Suisse', 'Vérifier mon contrat actuel'] },
   taxes: { title: 'M’occuper de mes impôts', subtitle: 'Déclaration & accompagnement', icon: '▤', cta: 'Parler de mes impôts', link: '/declaration-impots', linkLabel: 'Voir l’accompagnement fiscal', goals: ['Préparer ma déclaration', 'Comprendre ma situation', 'Faire le point sur mes déductions', 'Être accompagné dans mes démarches'] },
   arrival: { title: 'Je commence à travailler en Suisse', subtitle: 'Résident ou frontalier', icon: '🇨🇭', cta: 'Préparer mon arrivée avec Christian', link: '/assurances/particulier/assurance-maladie', linkLabel: 'Découvrir l’assurance maladie', goals: ['Avoir une vue d’ensemble', 'Comprendre mon assurance maladie', 'Comprendre mes impôts', 'Préparer mon épargne'] },
 };
@@ -43,7 +43,7 @@ export function getGuidance(topic, a) {
     items.push(['Définir un effort d’épargne adapté', a.budget && a.budget !== 'À définir ensemble' ? `Vous avez indiqué « ${a.budget} ». Ce repère servira à discuter d’un budget compatible avec vos autres projets.` : 'Définir ensemble un budget régulier, compatible avec vos charges et vos autres projets.']);
   } else if (topic === 'health') {
     items.push([a.coverage === 'Non' ? 'Clarifier votre première couverture' : 'Faire le point sur votre couverture', 'Examiner votre situation de résidence et d’activité, puis les démarches qui vous concernent.']);
-    items.push([a.goal === 'Me renseigner sur les subsides' ? 'Étudier la démarche de subside' : 'Préparer la comparaison', a.goal === 'Me renseigner sur les subsides' ? 'Consulter le parcours d’aide aux subsides pour connaître les informations à préparer. Aucune éligibilité n’est présumée.' : 'Rassembler votre police actuelle et préciser vos attentes avant de comparer les primes et les modèles disponibles.']);
+    items.push(['Préparer la comparaison', 'Rassembler votre police actuelle et préciser vos attentes avant de comparer les primes et les modèles disponibles.']);
     items.push(['Choisir votre prochaine démarche', 'Accéder au parcours LAMal ou échanger avec Christian pour clarifier les points qui restent ouverts.']);
   } else if (topic === 'taxes') {
     items.push(['Clarifier votre dossier fiscal', `Faire le point sur votre situation${a.canton ? ` et le canton indiqué : ${a.canton}` : ''}, avant de déterminer les démarches adaptées.`]);

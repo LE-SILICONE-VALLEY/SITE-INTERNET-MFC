@@ -59,10 +59,10 @@ const homePage = {
       },
       {
         icon: "Home",
-        title: "Hypothèque & Habitat",
+        title: "Assurances habitation",
         description:
-          "Accédez à la propriété avec les meilleures conditions du marché.",
-        linkText: "Mon projet immobilier",
+          "Protégez votre logement et votre bâtiment avec des garanties adaptées.",
+        linkText: "Protéger mon logement",
         path: "assurances/habitat/assurance-batiment",
       },
       {
@@ -149,7 +149,7 @@ const homePage = {
         options: [
           "Assurance Maladie (LAMal)",
           "Prévoyance & 3ème Pilier",
-          "Hypothèque",
+          "Assurances habitation",
           "Assurances Entreprise",
           "Autre demande",
         ],

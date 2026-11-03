@@ -1,10 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import { Menu, X, ChevronDown, Phone, Mail } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Menu, X, ChevronDown, Phone, MessageCircle } from "lucide-react";
 import siteConfig from "@/config/siteConfig";
-import { openMailto, CONTACT_EMAIL } from "@/lib/mailto";
 
 /**
  * Header UX 2026 — RESPONSIVE PROPRE (tous écrans)
@@ -132,7 +130,7 @@ const Header = ({ showToast }) => {
         "transition-all duration-300",
         scrolled
           ? "backdrop-blur-xl bg-white/70 dark:bg-neutral-950/50 border-b border-black/5 dark:border-white/10 shadow-sm"
-          : "bg-transparent",
+          : "bg-white/95 border-b border-black/5",
       ].join(" ")}
       initial={{ y: -72, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
@@ -147,17 +145,19 @@ const Header = ({ showToast }) => {
             className="flex items-center gap-3"
             aria-label="Accueil"
           >
+            <span className="relative block h-16 w-24 overflow-hidden">
             <motion.img
               src="/logo.png"
               alt="Mon Fidèle Conseiller"
-              className="h-10 sm:h-12 w-auto"
+              className="absolute h-40 w-40 max-w-none -left-8 -top-12"
               whileHover={{ scale: 1.03 }}
               transition={{ type: "spring", stiffness: 260, damping: 18 }}
             />
+            </span>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-1">
+          <nav aria-label="Navigation principale" className="hidden xl:flex items-center gap-1">
             {navItems.map((item) => {
               const hasDropdown = !!item.dropdown;
               const isOpen = activeDropdown === item.label;
@@ -172,7 +172,7 @@ const Header = ({ showToast }) => {
                   <button
                     type="button"
                     className={[
-                      "px-3 py-2 rounded-xl",
+                      "px-2.5 py-2 rounded-xl",
                       "text-sm font-semibold",
                       "text-gray-800 dark:text-gray-100",
                       "hover:bg-black/5 dark:hover:bg-white/10",
@@ -333,34 +333,29 @@ const Header = ({ showToast }) => {
           </nav>
 
           {/* Desktop Actions */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden xl:flex items-center gap-3">
             <a
               href={phoneHref}
-              className="hidden lg:flex items-center gap-2 rounded-2xl border border-black/5 dark:border-white/10 bg-white/60 dark:bg-white/5 px-3 py-2 backdrop-blur hover:bg-white/80 dark:hover:bg-white/10 transition"
+              className="flex items-center justify-center rounded-full border border-black/10 p-3 hover:bg-gray-50 transition"
+              aria-label="Appeler Mon Fidèle Conseiller"
             >
               <Phone className="h-4 w-4 text-orange-600" />
-              <div className="leading-tight">
-                <div className="text-[11px] font-semibold text-orange-600">
-                  {contactInfo?.headerPrompt || "Appelez-nous"}
-                </div>
-                <div className="text-sm font-black text-gray-900 dark:text-white">
-                  {contactInfo?.phone}
-                </div>
-              </div>
+
             </a>
 
-            <Button
-              onClick={() => navigate("/declaration-impots")}
-              className="rounded-2xl px-5 font-bold"
+            <a
+              href="https://wa.me/41797896193?text=Bonjour%20Christian%2C%20j%27aimerais%20un%20conseil."
+              target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-xl bg-[#bc3b2b] px-4 py-3 text-sm font-bold text-white hover:bg-[#9c3124] transition"
             >
-              Déclaration d’impôts
-            </Button>
+              <MessageCircle className="h-4 w-4" /> Parler à Christian
+            </a>
           </div>
 
           {/* Mobile button */}
           <button
             onClick={() => setIsMenuOpen((v) => !v)}
-            className="md:hidden inline-flex items-center justify-center rounded-xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur px-3 py-2 text-gray-900 dark:text-white"
+            className="xl:hidden inline-flex items-center justify-center rounded-xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur px-3 py-2 text-gray-900 dark:text-white"
             aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
           >
             {isMenuOpen ? (
@@ -527,15 +522,13 @@ const Header = ({ showToast }) => {
                     </span>
                   </a>
 
-                  <Button
-                    className="w-full rounded-2xl py-6 font-black text-base"
-                    onClick={() => {
-                      navigate("/declaration-impots");
-                      closeAll();
-                    }}
+                  <a
+                    href="https://wa.me/41797896193?text=Bonjour%20Christian%2C%20j%27aimerais%20un%20conseil."
+                    target="_blank" rel="noopener noreferrer" onClick={closeAll}
+                    className="flex items-center justify-center gap-2 w-full rounded-xl bg-[#bc3b2b] px-4 py-4 font-bold text-white"
                   >
-                    Déclaration d’impôts
-                  </Button>
+                    <MessageCircle className="h-5 w-5" /> Parler à Christian
+                  </a>
 
                   <button
                     onClick={closeAll}

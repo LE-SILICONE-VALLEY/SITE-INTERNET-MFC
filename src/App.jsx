@@ -131,7 +131,6 @@ const PageLayout = () => {
         />}
 
         <main className="flex-grow pt-20">
-          {['/', '/aide-subside', '/comparaison-lamal'].includes(location.pathname) && <nav aria-label="Accès directs à nos services" className="mfc-service-nav"><a href="/comparaison-lamal" aria-current={location.pathname === '/comparaison-lamal' ? 'page' : undefined}>Comparer ma LAMal</a><a href="/assurances/particulier/3eme-pilier">Mon 3ᵉ pilier</a><a href="/declaration-impots">Mes impôts</a><a href="/aide-subside" aria-current={location.pathname === '/aide-subside' ? 'page' : undefined}>Aide gratuite aux subsides</a></nav>}
           <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
               <Route path="/" element={<Home showToast={showToast} />} />

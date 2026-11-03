@@ -1,6 +1,9 @@
 const nav = {
   navItems: [
     { label: 'Accueil', path: '/' },
+    { label: 'LAMal', path: '/comparaison-lamal' },
+    { label: '3ᵉ pilier', path: '/assurances/particulier/3eme-pilier' },
+    { label: 'Impôts', path: '/declaration-impots' },
     { 
       label: 'Assurances',
       isMegaMenu: true,
@@ -8,12 +11,10 @@ const nav = {
         {
           title: 'PARTICULIERS',
           links: [
-            { label: 'Assurance maladie', path: '/assurances/particulier/assurance-maladie' }, 
             { label: 'Assurance automobile', path: '/assurances/particulier/assurance-automobile' }, 
             { label: 'RC privée', path: '/assurances/particulier/rc-privee' },
             { label: 'Protection juridique', path: '/assurances/particulier/protection-juridique' }, 
-            { label: 'Assurance ménage', path: '/assurances/particulier/assurance-menage' }, 
-            { label: '3ème pilier', path: '/assurances/particulier/3eme-pilier' }
+            { label: 'Assurance ménage', path: '/assurances/particulier/assurance-menage' }
           ]
         },
         {
@@ -31,8 +32,7 @@ const nav = {
           title: 'HABITAT & PROPRIÉTÉ',
           links: [
             { label: 'Assurance bâtiment', path: '/assurances/habitat/assurance-batiment' }, 
-            { label: 'Garantie de loyer', path: '/assurances/habitat/garantie-loyer' }, 
-            { label: 'Crédit hypothécaire', path: '/assurances/habitat/credit-hypothecaire' }
+            { label: 'Garantie de loyer', path: '/assurances/habitat/garantie-loyer' }
           ]
         },
         {
@@ -42,13 +42,6 @@ const nav = {
             { label: 'Rabais collectif', path: '/rabais-collectif' }
           ]
         }
-      ]
-    },
-    { 
-      label: 'Comparateurs', 
-      dropdown: [
-        { label: 'Assurance maladie', path: 'https://www.priminfo.admin.ch/fr/praemien', isExternal: true },
-        { label: 'Intelligence artificielle', path: 'https://assur-bot-ia-v1.vercel.app/', isExternal: true }
       ]
     },
     { 
