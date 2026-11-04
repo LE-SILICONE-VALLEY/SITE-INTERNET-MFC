@@ -255,7 +255,7 @@ const Header = ({ showToast }) => {
                                           key={col.title}
                                           className="min-w-0"
                                         >
-                                          <h3 className="font-black text-xs uppercase tracking-wider text-orange-600 mb-3">
+                                          <h3 className="font-black text-xs uppercase tracking-wider text-red-600 mb-3">
                                             {col.title}
                                           </h3>
 
@@ -273,7 +273,7 @@ const Header = ({ showToast }) => {
                                                     "w-full text-left",
                                                     "rounded-xl px-3 py-2",
                                                     "text-gray-900 dark:text-gray-100",
-                                                    "hover:bg-orange-50 dark:hover:bg-white/10 hover:text-orange-600",
+                                                    "hover:bg-red-50 dark:hover:bg-white/10 hover:text-red-600",
                                                     "transition",
                                                     "truncate",
                                                   ].join(" ")}
@@ -339,14 +339,14 @@ const Header = ({ showToast }) => {
               className="flex items-center justify-center rounded-full border border-black/10 p-3 hover:bg-gray-50 transition"
               aria-label="Appeler Mon Fidèle Conseiller"
             >
-              <Phone className="h-4 w-4 text-orange-600" />
+              <Phone className="h-4 w-4 text-red-600" />
 
             </a>
 
             <a
               href="https://wa.me/41797896193?text=Bonjour%20Christian%2C%20j%27aimerais%20un%20conseil."
               target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl bg-[#bc3b2b] px-4 py-3 text-sm font-bold text-white hover:bg-[#9c3124] transition"
+              className="inline-flex items-center gap-2 rounded-xl bg-[#bd202e] px-4 py-3 text-sm font-bold text-white hover:bg-[#9c1a27] transition"
             >
               <MessageCircle className="h-4 w-4" /> Parler à Christian
             </a>
@@ -505,11 +505,11 @@ const Header = ({ showToast }) => {
                     className="w-full flex items-center justify-between rounded-2xl border border-black/5 dark:border-white/10 px-4 py-4 bg-black/[0.02] dark:bg-white/[0.04]"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="h-10 w-10 rounded-2xl bg-orange-500/10 flex items-center justify-center">
-                        <Phone className="h-5 w-5 text-orange-600" />
+                      <div className="h-10 w-10 rounded-2xl bg-red-500/10 flex items-center justify-center">
+                        <Phone className="h-5 w-5 text-red-600" />
                       </div>
                       <div className="text-left">
-                        <div className="text-xs font-semibold text-orange-600">
+                        <div className="text-xs font-semibold text-red-600">
                           {contactInfo?.headerPrompt || "Appelez-nous"}
                         </div>
                         <div className="font-black text-gray-900 dark:text-white">
@@ -525,7 +525,7 @@ const Header = ({ showToast }) => {
                   <a
                     href="https://wa.me/41797896193?text=Bonjour%20Christian%2C%20j%27aimerais%20un%20conseil."
                     target="_blank" rel="noopener noreferrer" onClick={closeAll}
-                    className="flex items-center justify-center gap-2 w-full rounded-xl bg-[#bc3b2b] px-4 py-4 font-bold text-white"
+                    className="flex items-center justify-center gap-2 w-full rounded-xl bg-[#bd202e] px-4 py-4 font-bold text-white"
                   >
                     <MessageCircle className="h-5 w-5" /> Parler à Christian
                   </a>

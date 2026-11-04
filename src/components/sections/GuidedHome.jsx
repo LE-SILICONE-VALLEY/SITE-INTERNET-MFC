@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { ArrowRight, ArrowLeft, Check, MessageCircle, RotateCcw, ShieldCheck, Sprout, HeartPulse, FileText, Compass, LockKeyhole, Pencil, Download, ChevronRight, CheckCircle2 } from 'lucide-react';
 import { journeys, getQuestions, suggestTopics, getGuidance, buildSummary } from '@/data/guidedJourney';
 import './GuidedHome.css';
@@ -37,7 +37,8 @@ const goalDetails = {
 const directContact = 'https://wa.me/41797896193?text=Bonjour%20Christian%2C%20j%27aimerais%20un%20conseil.';
 
 export default function GuidedHome() {
-  const [topic, setTopic] = useState(null);
+  const [searchParams] = useSearchParams();
+  const [topic, setTopic] = useState(() => journeys[searchParams.get('parcours')] ? searchParams.get('parcours') : null);
   const [answers, setAnswers] = useState({});
   const [step, setStep] = useState(0);
   const [pending, setPending] = useState('');

@@ -52,7 +52,7 @@ const Contact = ({ showToast }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
         >
-          <span className="text-orange-600 font-semibold">{contactSection.tagline}</span>
+          <span className="text-red-600 font-semibold">{contactSection.tagline}</span>
           <h2 className="text-4xl font-bold text-gray-900 mt-2 mb-4">{contactSection.title}</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             {contactSection.description}
@@ -100,7 +100,7 @@ const Contact = ({ showToast }) => {
               <Label htmlFor="insuranceType" className="block text-sm font-medium text-gray-700 mb-2">{contactSection.form.insuranceType.label}</Label>
               <select 
                 id="insuranceType"
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white"
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 focus:border-transparent bg-white"
                 {...register("insuranceType")}
                 >
                 {contactSection.form.insuranceType.options.map(option => (
@@ -113,7 +113,7 @@ const Contact = ({ showToast }) => {
               <textarea 
                 id="message"
                 rows={4}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 focus:border-transparent"
                 placeholder={contactSection.form.message.placeholder}
                 {...register("message")}
               ></textarea>

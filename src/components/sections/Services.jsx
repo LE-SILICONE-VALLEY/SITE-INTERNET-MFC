@@ -17,7 +17,7 @@ const Services = ({ showToast }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
         >
-          <span className="text-orange-600 font-semibold">{servicesSection.tagline}</span>
+          <span className="text-red-600 font-semibold">{servicesSection.tagline}</span>
           <h2 className="text-4xl font-bold text-gray-900 mt-2 mb-4">{servicesSection.title}</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             {servicesSection.description}
@@ -37,14 +37,14 @@ const Services = ({ showToast }) => {
                 transition={{ delay: index * 0.1, duration: 0.5 }}
               >
                 <div className="flex-grow">
-                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-orange-100 to-red-100 flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
-                    <Icon className="h-8 w-8 text-orange-600" />
+                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-red-100 to-red-100 flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
+                    <Icon className="h-8 w-8 text-red-600" />
                   </div>
                   <h3 className="text-2xl font-semibold text-gray-900 mb-3">{service.title}</h3>
                   <p className="text-gray-600 mb-6">{service.description}</p>
                 </div>
                 {/* MODIFICATION DU BOUTON */}
-                <Link to={service.path} className="flex items-center text-orange-600 font-semibold group-hover:text-orange-500 transition-colors mt-auto">
+                <Link to={service.path} className="flex items-center text-red-600 font-semibold group-hover:text-red-500 transition-colors mt-auto">
                   {service.linkText} <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
               </motion.div>

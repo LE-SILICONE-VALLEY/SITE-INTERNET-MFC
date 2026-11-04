@@ -7,7 +7,7 @@ const About = () => {
   const { aboutSection } = siteConfig.homePage;
 
   return (
-    <section id="a-propos" className="section-padding bg-orange-50/50 bg-dots">
+    <section id="a-propos" className="section-padding bg-red-50/50 bg-dots">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -28,7 +28,7 @@ const About = () => {
               viewport={{ once: true }}
             >
               <div className="flex items-center space-x-4">
-                <Award className="h-12 w-12 text-orange-500" />
+                <Award className="h-12 w-12 text-red-500" />
                 <div>
                   <div className="font-bold text-gray-900 text-lg">{aboutSection.certification.title}</div>
                   <div className="text-sm text-gray-600">{aboutSection.certification.subtitle}</div>
@@ -45,7 +45,7 @@ const About = () => {
             className="space-y-8"
           >
             <div>
-              <span className="text-orange-600 font-semibold">{aboutSection.tagline}</span>
+              <span className="text-red-600 font-semibold">{aboutSection.tagline}</span>
               <h2 className="text-4xl font-bold text-gray-900 mt-2 mb-6">{aboutSection.title}</h2>
               <p className="text-lg text-gray-600 leading-relaxed">
                 {aboutSection.description}

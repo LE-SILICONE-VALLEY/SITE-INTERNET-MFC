@@ -12,7 +12,8 @@ const aboutPage = {
       description: "Notre rémunération est transparente et nous ne favorisons aucune compagnie. Votre satisfaction est notre seul succès."
     },
     image: {
-      alt: "Poignée de main symbolisant la confiance entre un conseiller et son client à Genève",
+      src: "/about-mission.jpg.jpg",
+      alt: "Immeubles de Genève sur les rives du lac Léman",
       text: "Deux personnes scellant un accord avec une poignée de main dans un bureau moderne"
     }
   },

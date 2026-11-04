@@ -56,7 +56,7 @@ const EngagementPage = () => {
                 className="order-last lg:order-first"
               >
                 <img
-                  className="rounded-2xl shadow-xl w-full h-auto"
+                  className="mfc-service-photo" loading="lazy" decoding="async"
                   alt={engagementPage.main.image.alt || 'Engagement'}
                   // Remplace l’ancienne URL Hostinger par une source locale + fallback
                   src={engagementPage.main.image?.src || FALLBACK_IMG}
@@ -68,7 +68,7 @@ const EngagementPage = () => {
               </motion.div>
 
               <div>
-                <span className="text-orange-600 font-semibold">
+                <span className="text-red-600 font-semibold">
                   {engagementPage.main.tagline}
                 </span>
                 <h2 className="text-4xl font-bold text-gray-900 mt-2 mb-6">
@@ -100,7 +100,7 @@ const EngagementPage = () => {
                 const Icon = icons[point.icon];
                 const colors = {
                   Sport: 'bg-blue-100 text-blue-600',
-                  Social: 'bg-orange-100 text-orange-600',
+                  Social: 'bg-red-100 text-red-600',
                   Culture: 'bg-green-100 text-green-600',
                 };
                 const colorClass = colors[point.icon];

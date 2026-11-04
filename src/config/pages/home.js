@@ -71,7 +71,7 @@ const homePage = {
         description:
           "Sécurisez votre famille et votre patrimoine efficacement.",
         linkText: "Sécuriser ma famille",
-        path: "assurances/particulier/assurance-automobile",
+        path: "assurances/particulier/rc-privee",
       },
       {
         icon: "Car",

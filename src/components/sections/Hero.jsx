@@ -107,7 +107,7 @@ const Hero = () => {
             </div>
 
             {/* Effets lumineux */}
-            <div className="absolute -top-8 -right-8 w-40 h-40 bg-orange-300/50 rounded-full filter blur-3xl -z-10 animate-pulse"></div>
+            <div className="absolute -top-8 -right-8 w-40 h-40 bg-red-300/50 rounded-full filter blur-3xl -z-10 animate-pulse"></div>
             <div className="absolute -bottom-12 -left-12 w-56 h-56 bg-blue-300/50 rounded-full filter blur-3xl -z-10 animate-pulse animation-delay-2000"></div>
           </motion.div>
         </div>

@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import siteConfig from '@/config/siteConfig';
 
-const FALLBACK_IMG = '/about-mission.jpg'; // place ce fichier dans /public
+const FALLBACK_IMG = '/about-mission.jpg.jpg'; // place ce fichier dans /public
 
 const AboutPage = () => {
   const { aboutPage } = siteConfig;
@@ -41,13 +41,13 @@ const AboutPage = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div>
-                <span className="text-orange-600 font-semibold">{aboutPage.mission.tagline}</span>
+                <span className="text-red-600 font-semibold">{aboutPage.mission.tagline}</span>
                 <h2 className="text-4xl font-bold text-gray-900 mt-2 mb-6">{aboutPage.mission.title}</h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
                   {aboutPage.mission.description}
                 </p>
                 <div className="flex items-start space-x-4">
-                  <Target className="h-10 w-10 text-orange-500 mt-1 flex-shrink-0" />
+                  <Target className="h-10 w-10 text-red-500 mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold text-gray-900 text-lg">{aboutPage.mission.highlight.title}</h3>
                     <p className="text-gray-600">{aboutPage.mission.highlight.description}</p>
@@ -61,7 +61,7 @@ const AboutPage = () => {
                 viewport={{ once: true }}
               >
                 <img
-                  className="rounded-2xl shadow-xl w-full h-auto"
+                  className="mfc-service-photo" loading="lazy" decoding="async"
                   alt={aboutPage.mission.image.alt || 'Notre mission'}
                   // Remplace l’ancienne URL Hostinger par l’image locale
                   src={aboutPage.mission.image?.src || FALLBACK_IMG}
@@ -88,7 +88,7 @@ const AboutPage = () => {
                 const colors = {
                   Proximity: 'bg-blue-100 text-blue-600',
                   Expertise: 'bg-green-100 text-green-600',
-                  Independence: 'bg-orange-100 text-orange-600',
+                  Independence: 'bg-red-100 text-red-600',
                 };
                 const colorClass = colors[point.icon];
 

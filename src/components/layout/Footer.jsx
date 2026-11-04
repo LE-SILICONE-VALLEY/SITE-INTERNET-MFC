@@ -93,7 +93,7 @@ export default function Footer({ showToast }) {
                 <ul className="mt-3 space-y-2 text-gray-300 text-sm">
                   {(footerData?.contact?.address || footerData?.contact?.city) && (
                     <li className="flex items-start gap-2">
-                      <MapPin className="h-4 w-4 mt-0.5 text-orange-400" />
+                      <MapPin className="h-4 w-4 mt-0.5 text-red-400" />
                       <span>
                         {footerData?.contact?.address}
                         {footerData?.contact?.address && footerData?.contact?.city
@@ -106,7 +106,7 @@ export default function Footer({ showToast }) {
 
                   {footerData?.contact?.email && (
                     <li className="flex items-center gap-2">
-                      <Mail className="h-4 w-4 text-orange-400" />
+                      <Mail className="h-4 w-4 text-red-400" />
                       <button
                         type="button"
                         onClick={() =>
@@ -124,7 +124,7 @@ export default function Footer({ showToast }) {
 
                   {footerData?.contact?.phone && (
                     <li className="flex items-center gap-2">
-                      <Phone className="h-4 w-4 text-orange-400" />
+                      <Phone className="h-4 w-4 text-red-400" />
                       <a
                         href={safePhoneHref}
                         className="hover:text-white transition focus:outline-none focus:ring-2 focus:ring-white/15 rounded"
@@ -142,7 +142,7 @@ export default function Footer({ showToast }) {
                     onClick={() =>
                       openMailto(CONTACT_EMAIL, "Demande – Mon Fidèle Conseiller")
                     }
-                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-orange-500 px-4 py-3 text-sm font-extrabold text-white hover:bg-orange-400 transition active:scale-[0.99] focus:outline-none focus:ring-2 focus:ring-white/15"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-red-500 px-4 py-3 text-sm font-extrabold text-white hover:bg-red-400 transition active:scale-[0.99] focus:outline-none focus:ring-2 focus:ring-white/15"
                   >
                     Nous contacter
                     <ArrowRight className="h-4 w-4" />
@@ -165,7 +165,7 @@ export default function Footer({ showToast }) {
                     href={PRIMINFO_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-orange-400/20 bg-orange-500/10 px-4 py-3 text-sm font-extrabold text-orange-200 hover:bg-orange-500/15 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-white/15"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-red-400/20 bg-red-500/10 px-4 py-3 text-sm font-extrabold text-red-200 hover:bg-red-500/15 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-white/15"
                   >
                     Comparer ma LAMal (Priminfo)
                     <ExternalLink className="h-4 w-4" />
@@ -187,7 +187,7 @@ export default function Footer({ showToast }) {
                       to={link.path}
                       className="inline-flex items-center gap-2 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-white/15 rounded"
                     >
-                      <span className="h-1.5 w-1.5 rounded-full bg-orange-400/80" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-red-400/80" />
                       {link.label}
                     </Link>
                   </li>
@@ -215,7 +215,7 @@ export default function Footer({ showToast }) {
                           href={PRIMINFO_URL}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="block rounded-xl border border-orange-400/20 bg-orange-500/10 px-3 py-3 hover:bg-orange-500/15 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-white/15"
+                          className="block rounded-xl border border-red-400/20 bg-red-500/10 px-3 py-3 hover:bg-red-500/15 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-white/15"
                         >
                           {link.label}
                         </a>

@@ -43,7 +43,7 @@ const Partners = () => {
           <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent"></div>
         </div>
         <div className="text-center mt-12">
-          <Link to="/partenaires" className="text-orange-600 font-semibold hover:text-orange-800 transition-colors">
+          <Link to="/partenaires" className="text-red-600 font-semibold hover:text-red-800 transition-colors">
             {partnersSection.linkText} &rarr;
           </Link>
         </div>

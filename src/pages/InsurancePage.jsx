@@ -8,37 +8,37 @@ import { Button } from '@/components/ui/button';
 import siteConfig from '@/config/siteConfig';
 import { openMailto, CONTACT_EMAIL } from '@/lib/mailto';
 
-const FALLBACK_HERO = '/insurance-hero.webp';         // place ce fichier dans /public
-const FALLBACK_COMPARATOR = '/insurance-comparator.jpg'; // place ce fichier dans /public
+const FALLBACK_HERO = '/insurance-hero.jpg';         // place ce fichier dans /public
+const FALLBACK_COMPARATOR = '/conseiller-geneve.jpg'; // place ce fichier dans /public
 
 const generateFallbackData = (title) => ({
   title: title,
   hero: {
-    subtitle: `La protection optimale pour votre ${title.toLowerCase()}, négociée au meilleur prix.`,
-    description: `Nos experts analysent pour vous des dizaines d'offres afin de construire le contrat d'${title.toLowerCase()} parfaitement adapté à vos besoins spécifiques et à votre budget.`,
+    subtitle: 'Des garanties à comprendre, un contrat à choisir ensemble.',
+    description: 'Nous faisons le point sur votre situation, vos priorités et les contrats que vous avez déjà. Votre conseiller vous aide à examiner les garanties, les exclusions et le budget avant de choisir une solution.',
     ctaText: 'Demander une offre sur-mesure',
     action: 'mailto',
     subject: `Demande d'offre sur-mesure pour : ${title}`,
-    image: { alt: `Illustration experte pour ${title}`, src: FALLBACK_HERO }
+    image: { alt: "Vue de Genève et de sa rade", src: FALLBACK_HERO }
   },
   comparator: {
-    title: `Comparez en 2 minutes les offres pour ${title}`,
+    title: `Faisons le point sur votre projet`,
     description:
-      "Notre outil exclusif vous donne une vision claire du marché. Identifiez les meilleures primes et garanties instantanément. C'est 100% gratuit, neutre et sans engagement.",
-    points: ['Comparatif 100% indépendant', "Jusqu'à 40% d’économies", 'Conseils de nos experts inclus'],
+      "Un échange pour clarifier vos besoins, examiner les contrats existants et préparer les options à comparer. Vous gardez la décision à chaque étape.",
+    points: ['Votre situation et vos priorités', 'Les garanties et exclusions à examiner', 'Un accompagnement pour comprendre vos options'],
     ctaText: 'Parler à un expert',
     action: 'mailto',
     subject: `Demande de conseil pour : ${title}`,
-    image: { alt: "Analyse comparative d'offres d'assurance sur un écran", src: FALLBACK_COMPARATOR }
+    image: { alt: "Échange autour d’un ordinateur dans un espace de travail", src: FALLBACK_COMPARATOR }
   },
   complements: {
-    title: 'Garanties & Options Clés',
-    description: `Affinez votre protection avec les couvertures essentielles pour l'${title.toLowerCase()}.`,
+    title: 'Les points à examiner ensemble',
+    description: 'Les garanties disponibles et leurs conditions dépendent du contrat étudié.',
     items: [
-      { label: 'Protection Juridique', icon: 'Shield' },
-      { label: 'Assistance Monde', icon: 'Globe' },
-      { label: 'Couverture Premium', icon: 'Star' },
-      { label: 'Franchise Zéro', icon: 'ThumbsUp' }
+      { label: 'Votre besoin', icon: 'Target' },
+      { label: 'Les garanties', icon: 'Shield' },
+      { label: 'Les exclusions', icon: 'FileText' },
+      { label: 'Votre budget', icon: 'Wallet' }
     ]
   }
 });
@@ -49,12 +49,15 @@ const InsurancePage = () => {
   const { insurancePages } = siteConfig;
 
   const pageInfo = insurancePages.pages[category]?.[slug];
-  const title = pageInfo?.title || slug.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
+  const names = { '3eme-pilier': '3ᵉ pilier & prévoyance', 'rc-privee': 'Responsabilité civile privée', 'rc-professionnelle': 'Responsabilité civile professionnelle', '2eme-pilier': 'Prévoyance professionnelle', 'vehicules-professionnel': 'Véhicules professionnels' };
+  const title = pageInfo?.title || names[slug] || slug.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
   const data = pageInfo || generateFallbackData(title);
 
   const handleCtaClick = (ctaData) => {
     if (ctaData.path) {
       navigate(ctaData.path);
+    } else if (ctaData.action === 'whatsapp') {
+      window.open(`https://wa.me/41797896193?text=${encodeURIComponent(ctaData.subject || `Bonjour Christian, j’aimerais un conseil sur : ${title}`)}`, '_blank', 'noopener,noreferrer');
     } else if (ctaData.action === 'mailto') {
       openMailto(CONTACT_EMAIL, ctaData.subject || `Demande d'informations pour : ${title}`);
     } else {
@@ -71,8 +74,8 @@ const InsurancePage = () => {
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7 }}>
                 <img
-                  className="rounded-2xl shadow-xl w-full h-auto object-cover"
-                  alt={data.hero.image.alt || 'Assurance – visuel'}
+                  className="mfc-service-photo" decoding="async"
+                  alt={data.hero.image?.alt || 'Assurance – visuel'}
                   src={data.hero.image?.src || FALLBACK_HERO}
                   onError={(e) => {
                     e.currentTarget.onerror = null;
@@ -83,7 +86,7 @@ const InsurancePage = () => {
 
               <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.2 }}>
                 <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900">{data.title}</h1>
-                <p className="mt-4 text-lg font-semibold text-orange-600">{data.hero.subtitle}</p>
+                <p className="mt-4 text-lg font-semibold text-red-600">{data.hero.subtitle}</p>
                 <p className="mt-4 text-lg text-gray-600 leading-relaxed">{data.hero.description}</p>
                 <Button
                   size="lg"
@@ -126,8 +129,8 @@ const InsurancePage = () => {
 
                 <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.2 }}>
                   <img
-                    className="rounded-2xl shadow-xl w-full h-auto object-cover"
-                    alt={data.comparator.image.alt || 'Comparateur – visuel'}
+                    className="mfc-service-photo" decoding="async"
+                    alt={data.comparator.image?.alt || 'Comparateur – visuel'}
                     src={data.comparator.image?.src || FALLBACK_COMPARATOR}
                     onError={(e) => {
                       e.currentTarget.onerror = null;
@@ -147,7 +150,7 @@ const InsurancePage = () => {
               <h2 className="text-4xl font-bold text-white">{data.complements.title}</h2>
               <p className="mt-4 text-xl text-blue-100 max-w-3xl mx-auto">{data.complements.description}</p>
 
-              <div className="mt-16 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
+              <div className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {data.complements.items.map((item, i) => {
                   const Icon = Icons[item.icon] || Icons.Shield;
                   return (
@@ -160,7 +163,7 @@ const InsurancePage = () => {
                       viewport={{ once: true }}
                     >
                       <div className="w-20 h-20 bg-white/10 rounded-lg flex items-center justify-center">
-                        <Icon className="h-8 w-8 text-orange-400" />
+                        <Icon className="h-8 w-8 text-red-400" />
                       </div>
                       <span className="text-white font-medium text-sm">{item.label}</span>
                     </motion.div>

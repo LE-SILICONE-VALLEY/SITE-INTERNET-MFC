@@ -1,10 +1,11 @@
+import EditorialImage from '@/components/sections/EditorialImage';
 import React from 'react';
 import { motion } from 'framer-motion';
 import PageTransition from '@/components/layout/PageTransition';
 import siteConfig from '@/config/siteConfig';
 
 // ✅ Fallback logo local
-const FALLBACK_LOGO = '/partners/default-logo.png'; // crée ce fichier dans /public/partners/
+const FALLBACK_LOGO = '/logo.png'; // crée ce fichier dans /public/partners/
 
 const PartnersPage = () => {
   const { partnersPage } = siteConfig;
@@ -35,6 +36,7 @@ const PartnersPage = () => {
           </div>
         </div>
 
+        <div className="mx-auto max-w-7xl px-4 pt-10 sm:px-6 lg:px-8"><EditorialImage src="/insurance-hero.jpg" alt="Vue de Genève, de sa rade et du Jet d’eau" caption="Un interlocuteur local pour faire le lien entre vos besoins et les compagnies." className="mfc-editorial-wide" /></div>
         {/* Logos partenaires */}
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

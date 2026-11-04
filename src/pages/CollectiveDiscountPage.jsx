@@ -16,7 +16,7 @@ const CollectiveDiscountPage = () => {
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }}>
                 <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900">{collectiveDiscountPage.title}</h1>
-                <p className="mt-4 text-lg font-semibold text-orange-600">{collectiveDiscountPage.subtitle}</p>
+                <p className="mt-4 text-lg font-semibold text-red-600">{collectiveDiscountPage.subtitle}</p>
                 <div className="mt-6 text-lg text-gray-600 leading-relaxed space-y-4">
                   {collectiveDiscountPage.description.map((paragraph, index) => (
                     <p key={index}>{paragraph}</p>
@@ -34,7 +34,7 @@ const CollectiveDiscountPage = () => {
               <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.2 }}>
                 <img  
                     alt={collectiveDiscountPage.image.alt} 
-                    className="rounded-2xl shadow-xl w-full h-auto object-cover" src="https://images.unsplash.com/photo-1641803216631-47d43eb4f35e" />
+                    className="rounded-2xl shadow-xl w-full h-auto object-cover" src="/about-mission.jpg.jpg" loading="lazy" decoding="async" />
               </motion.div>
             </div>
           </div>

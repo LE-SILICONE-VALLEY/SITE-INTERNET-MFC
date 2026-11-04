@@ -7,7 +7,7 @@ const collectiveDiscountPage = {
     "Notre équipe d'experts se charge de tout : nous auditons gratuitement vos polices actuelles et construisons pour vous une offre groupée ultra-compétitive. Simple, efficace et sans engagement."
   ],
   image: {
-    alt: "Famille souriante profitant de la vie en Suisse",
+    alt: "Les rives du lac Léman à Genève",
     text: "Une famille heureuse se promenant au bord du lac Léman avec les montagnes en arrière-plan."
   },
   ctaText: "Demander mon audit gratuit",
