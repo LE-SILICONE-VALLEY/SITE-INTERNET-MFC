@@ -1,7 +1,7 @@
 const theme = {
   themeColors: {
     'primary': '0 100% 59.6%',
-    'primary-foreground': '0 0% 8%',
+    'primary-foreground': '0 0% 100%',
     'secondary': '196 100% 21%',
     'secondary-foreground': '0 0% 98%',
     'muted': '210 40% 96%',

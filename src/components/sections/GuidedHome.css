@@ -226,3 +226,15 @@
 .guide-sidebar .guide-adviser-avatar{background:#fff;color:#251d20}
 .guide-kicker,.guide-topic-label{color:#b91c1c}
 .guide-choice.is-selected .guide-choice-check{background:#ff3131;border-color:#ff3131;color:#20191c}
+
+/* White type on every vivid red surface. */
+.guide-primary,.guide-primary:hover{color:#fff;font-weight:700}
+.mfc-guide .guide-topic-pillar,.mfc-guide .guide-sidebar{color:#fff}
+.guide-topic-pillar .guide-topic-label,.guide-topic-pillar>p,.guide-topic-pillar .guide-topic-index,.guide-topic-pillar .guide-topic-enter svg,.guide-topic-pillar .guide-topic-icon{color:#fff}
+.guide-topic-pillar .guide-topic-enter,.guide-topic-pillar .guide-topic-icon{border-color:#ffffff55}
+.guide-sidebar>.guide-kicker,.guide-sidebar-summary>.guide-kicker,.guide-sidebar>p,.guide-sidebar-summary>p,.guide-sidebar .guide-stages>li,.guide-sidebar .guide-stages .is-current,.guide-sidebar .guide-stages .is-complete,.guide-sidebar .guide-answer-list dt,.guide-sidebar .guide-answer-list dd,.guide-sidebar .guide-answer-list dd>button,.guide-sidebar .guide-adviser small{color:#fff}
+.guide-sidebar-icon{color:#fff;background:#ffffff16;border-color:#ffffff55}
+.guide-sidebar .guide-stages,.guide-sidebar .guide-answer-list>div,.guide-sidebar .guide-adviser{border-color:#ffffff55}
+.guide-sidebar .guide-stage-dot{border-color:#fff}
+.guide-sidebar .guide-stages .is-current>.guide-stage-dot{background:#fff;border-color:#ffb3b3;box-shadow:0 0 0 1px #fff}
+.guide-choice.is-selected .guide-choice-check{color:#fff}

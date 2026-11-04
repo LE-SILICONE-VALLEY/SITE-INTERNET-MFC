@@ -6,7 +6,7 @@
 
 :root {
   --primary: 0 100% 59.6%;
-  --primary-foreground: 0 0% 8%;
+  --primary-foreground: 0 0% 100%;
   --secondary: 196 100% 21%;
   --secondary-foreground: 0 0% 98%;
   --muted: 210 40% 96%;
@@ -119,6 +119,6 @@ body {
 
 .mfc-service-layout h1,.mfc-service-layout h2{font-family:Georgia,'Times New Roman',serif;font-weight:400;letter-spacing:-.035em;line-height:1.13}.mfc-service-layout h1{font-size:clamp(38px,4.4vw,58px)}
 
-/* Exact logo red: RGB 255, 49, 49. Dark labels keep vivid surfaces readable. */
-.btn-primary,.btn-primary:hover{color:#20191c}
-.subsidy-page .subsidy-button:not(.subsidy-secondary),.subsidy-page .subsidy-button:not(.subsidy-secondary):hover{color:#20191c}
+/* Exact logo red: RGB 255, 49, 49. White labels on vivid red surfaces. */
+.btn-primary,.btn-primary:hover{color:#fff}
+.subsidy-page .subsidy-button:not(.subsidy-secondary),.subsidy-page .subsidy-button:not(.subsidy-secondary):hover{color:#fff}
