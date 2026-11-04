@@ -116,3 +116,5 @@ body {
 .subsidy-page .subsidy-button:not(.subsidy-secondary){background:#bd202e;color:white}
 .subsidy-page .subsidy-button:not(.subsidy-secondary):hover{background:#9d1b29;color:white}
 @media(max-width:700px){.mfc-editorial-image img{height:220px;min-height:0}.mfc-editorial-wide img{height:220px}.mfc-editorial-tax img{height:200px}.mfc-editorial-image figcaption{font-size:12px;padding:28px 16px 14px}.mfc-service-photo{aspect-ratio:4/3}}
+
+.mfc-service-layout h1,.mfc-service-layout h2{font-family:Georgia,'Times New Roman',serif;font-weight:400;letter-spacing:-.035em;line-height:1.13}.mfc-service-layout h1{font-size:clamp(38px,4.4vw,58px)}

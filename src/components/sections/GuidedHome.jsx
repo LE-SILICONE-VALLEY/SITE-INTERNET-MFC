@@ -38,7 +38,7 @@ const directContact = 'https://wa.me/41797896193?text=Bonjour%20Christian%2C%20j
 
 export default function GuidedHome() {
   const [searchParams] = useSearchParams();
-  const [topic, setTopic] = useState(() => journeys[searchParams.get('parcours')] ? searchParams.get('parcours') : null);
+  const [topic, setTopic] = useState(() => Object.prototype.hasOwnProperty.call(journeys, searchParams.get('parcours')) ? searchParams.get('parcours') : null);
   const [answers, setAnswers] = useState({});
   const [step, setStep] = useState(0);
   const [pending, setPending] = useState('');

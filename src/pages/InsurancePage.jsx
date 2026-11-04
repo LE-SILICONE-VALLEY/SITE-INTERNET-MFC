@@ -67,7 +67,7 @@ const InsurancePage = () => {
 
   return (
     <PageTransition>
-      <div className="bg-white">
+      <div className="mfc-service-layout bg-white">
         {/* Hero Section */}
         <section className="py-20 lg:py-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
