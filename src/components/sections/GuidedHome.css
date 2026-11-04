@@ -1,4 +1,4 @@
-.mfc-guide{--guide-ink:#351d24;--guide-red:#bd202e;--guide-muted:#61737c;--guide-line:#e4e7e4;background:radial-gradient(ellipse at 85% 0%,#f8dfe2 0,transparent 54%),#faf8f4;color:var(--guide-ink);padding:52px 24px 40px;scroll-margin-top:80px}
+.mfc-guide{--guide-ink:#351d24;--guide-red:#ff3131;--guide-muted:#61737c;--guide-line:#e4e7e4;background:radial-gradient(ellipse at 85% 0%,#f8dfe2 0,transparent 54%),#faf8f4;color:var(--guide-ink);padding:52px 24px 40px;scroll-margin-top:80px}
 .guide-container{max-width:1140px;margin:auto}
 .guide-welcome{text-align:center;max-width:750px;margin:0 auto 40px}
 .guide-kicker{display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:1.6px;font-weight:750;color:var(--guide-red);line-height:1.6}
@@ -76,7 +76,7 @@
 .guide-choice:hover{border-color:#b7bfb9;background:#fafbf8}
 .guide-choice.is-selected{border-color:var(--guide-red);box-shadow:0 0 0 1px var(--guide-red);background:#fff2f1}
 .guide-choice input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
-.guide-choice:focus-within{outline:3px solid #bd202e55;outline-offset:3px}
+.guide-choice:focus-within{outline:3px solid #ff313155;outline-offset:3px}
 .guide-choice-check{width:18px;height:18px;border:1px solid #c6cfca;border-radius:50%;display:grid;place-items:center;flex-shrink:0;margin-top:1px;color:#fff;background:#fff}
 .guide-choice.is-selected .guide-choice-check{background:var(--guide-red);border-color:var(--guide-red)}
 .guide-choice-text{min-width:0;flex:1}
@@ -86,7 +86,7 @@
 .guide-question-footer{display:flex;justify-content:space-between;align-items:center;gap:16px;border-top:1px solid #edf0e9;padding:23px 36px;background:#fdfdfb}
 .guide-skip{font-size:12px;color:var(--guide-muted);text-align:left;text-decoration:underline;text-underline-offset:3px;padding:8px 0;max-width:170px}
 .guide-primary{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:48px;border-radius:10px;padding:14px 20px;background:var(--guide-red);color:#fff;font-size:12px;font-weight:700;line-height:1.5;transition:background .15s}
-.guide-primary:hover{background:#961b28}
+.guide-primary:hover{background:#eb2424}
 .guide-primary:disabled{cursor:not-allowed;background:#e7e9e4;color:#8b968f}
 .guide-primary svg{flex-shrink:0}
 .guide-mobile-recap{display:none}
@@ -116,7 +116,7 @@
 .guide-restart{display:flex;align-items:center;gap:6px;padding:10px 0;font-size:12px;color:var(--guide-muted);margin-top:16px}
 .guide-suggestions{padding:14px;border:1px solid var(--guide-line);border-radius:10px;background:#fff;margin-top:16px;font-size:12px}
 .guide-suggestions button{display:inline-flex;gap:8px;align-items:center;border:1px solid #cdd8cf;padding:8px 12px;border-radius:8px;margin:10px 6px 0 0;background:#f8faf5}
-.mfc-guide button:focus-visible,.mfc-guide a:focus-visible,.mfc-guide input:focus-visible,.mfc-guide summary:focus-visible{outline:3px solid #bd202e88;outline-offset:4px}
+.mfc-guide button:focus-visible,.mfc-guide a:focus-visible,.mfc-guide input:focus-visible,.mfc-guide summary:focus-visible{outline:3px solid #ff313188;outline-offset:4px}
 .mfc-guide h2:focus{outline:none}
 @keyframes guide-question-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:1000px){.guide-topic-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.guide-topic-card h3{min-height:0}.guide-topic-top{margin-bottom:18px}.guide-workspace{grid-template-columns:235px minmax(0,1fr)}.guide-sidebar{padding:28px 20px}.guide-question-content{padding:30px 24px 22px}.guide-question-top{padding:20px 24px}.guide-question-footer{padding:20px 24px}.guide-result{padding:28px 24px}.guide-choice{padding:17px 13px;gap:9px}.guide-choices-grid{grid-template-columns:1fr}.guide-choice-number{display:none}}
@@ -125,11 +125,11 @@
 @media(prefers-reduced-motion:reduce){.mfc-guide *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 
 /* Editorial palette and a quieter, more generous interface. */
-.mfc-guide{--guide-ink:#351d24;--guide-red:#bd202e;--guide-muted:#5c7078;--guide-line:#e5e4dc;background:#fff9f7;padding-top:58px}
+.mfc-guide{--guide-ink:#351d24;--guide-red:#ff3131;--guide-muted:#5c7078;--guide-line:#e5e4dc;background:#fff9f7;padding-top:58px}
 .guide-container{max-width:1160px}
 .guide-welcome{margin-bottom:48px}
 .guide-welcome h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(46px,5.8vw,76px);font-weight:400;line-height:1.06;letter-spacing:-2.5px;margin:26px 0}
-.guide-welcome h1 em{font-style:italic;color:#bd202e}
+.guide-welcome h1 em{font-style:italic;color:#ff3131}
 .guide-welcome>p{font-size:17px;line-height:1.8}
 .guide-trust{gap:12px 24px;font-size:12px;margin-top:28px}
 .guide-kicker{letter-spacing:1.8px;font-size:11px;font-weight:600}
@@ -137,7 +137,7 @@
 .guide-start-heading h2{font-family:Georgia,'Times New Roman',serif;font-size:28px;font-weight:400}
 .guide-topic-grid{gap:16px}
 .guide-topic-card{border-radius:8px;padding:28px 24px;box-shadow:none;background:#fff}
-.guide-topic-card:hover{box-shadow:0 10px 30px #351d240a;transform:translateY(-3px);border-color:#bd202e}
+.guide-topic-card:hover{box-shadow:0 10px 30px #351d240a;transform:translateY(-3px);border-color:#ff3131}
 .guide-topic-pillar{background:#351d24;color:#fff;border-color:#351d24}
 .guide-topic-pillar:hover{background:#5e1c2a;border-color:#5e1c2a}
 .guide-topic-pillar .guide-topic-icon{border-color:#fff3;background:#fff1;color:#ffd8d5}
@@ -184,8 +184,8 @@
 .guide-question-hint{font-size:14px;line-height:1.8}
 .guide-choices{margin-top:30px;gap:14px}
 .guide-choice{border-radius:8px;padding:22px 18px;min-height:86px}
-.guide-choice.is-selected{background:#fff2f1;border-color:#bd202e;box-shadow:0 0 0 1px #bd202e}
-.guide-choice.is-selected .guide-choice-check{background:#bd202e;border-color:#bd202e}
+.guide-choice.is-selected{background:#fff2f1;border-color:#ff3131;box-shadow:0 0 0 1px #ff3131}
+.guide-choice.is-selected .guide-choice-check{background:#ff3131;border-color:#ff3131}
 .guide-choice-text strong{font-size:14px;font-weight:600}
 .guide-choice-text small{font-size:12px;line-height:1.75;margin-top:9px}
 .guide-choice-number{font-size:10px}
@@ -211,4 +211,18 @@
 @media(max-width:1050px){.guide-workspace{grid-template-columns:250px minmax(0,1fr)}.guide-sidebar{padding:30px 24px}.guide-question-content,.guide-result{padding:34px 28px}.guide-question-top,.guide-question-footer{padding:22px 28px}.guide-topic-card h3{min-height:0}.guide-topic-card>p{min-height:0}}
 @media(max-width:700px){.mfc-guide{padding:36px 16px 30px}.guide-welcome{margin-bottom:34px}.guide-welcome h1{font-size:46px;letter-spacing:-1.7px;margin:22px 0}.guide-welcome>p{font-size:14px;line-height:1.8}.guide-trust{font-size:10px;gap:10px 14px}.guide-start-heading h2{font-size:26px}.guide-start-heading>span{font-size:12px}.guide-topic-card{padding:20px 16px;border-radius:8px}.guide-topic-grid{gap:12px}.guide-topic-card h3{font-size:22px;line-height:1.22}.guide-topic-top{margin-bottom:20px}.guide-topic-label{font-size:10px;margin-bottom:9px}.guide-topic-card>p{font-size:12px;line-height:1.75;margin-bottom:20px}.guide-topic-enter{font-size:10px;line-height:1.5;padding-top:16px}.guide-topic-icon{height:40px;width:40px}.guide-search input{font-size:13px;padding:12px 8px}.guide-direct{font-size:11px}.mfc-guide-active{padding:14px 12px 28px}.guide-workspace{display:block;border-radius:10px}.guide-toolbar{font-size:11px}.guide-toolbar>span{font-size:10px}.guide-question-top{padding:18px 22px;font-size:11px}.guide-question-content,.guide-result{padding:30px 22px}.guide-question-content h2,.guide-result h2{font-size:34px;margin-top:17px}.guide-question-hint{font-size:13px}.guide-choice{padding:20px 16px;min-height:70px}.guide-choice-text strong{font-size:14px}.guide-choice-text small{font-size:12px;margin-top:7px}.guide-question-footer{padding:20px 22px}.guide-primary{font-size:13px;min-height:50px}.guide-skip{font-size:11px;max-width:none}.guide-mobile-recap{font-size:12px}.guide-next-action{padding:24px 18px}.guide-next-action>h3{font-size:28px}.guide-next-action>p{font-size:13px}.guide-roadmap p{font-size:13px}.guide-roadmap h3{font-size:15px}.guide-result-actions{font-size:12px}.guide-result-summary>summary{font-size:12px}}
 
-.mfc-guide .guide-topic-pillar,.mfc-guide .guide-sidebar{background:#751c2d;border-color:#751c2d}.mfc-guide .guide-topic-pillar:hover{background:#641626;border-color:#641626}.guide-choice:focus-within{outline-color:#bd202e55}.guide-sidebar .guide-adviser-avatar{background:#ffd8d5;color:#751c2d}.guide-sidebar .guide-answer-list dd>button{color:#ffd8d5}
+.mfc-guide .guide-topic-pillar,.mfc-guide .guide-sidebar{background:#ff3131;border-color:#ff3131}.mfc-guide .guide-topic-pillar:hover{background:#eb2424;border-color:#eb2424}.guide-choice:focus-within{outline-color:#ff313155}.guide-sidebar .guide-adviser-avatar{background:#ffd8d5;color:#ff3131}.guide-sidebar .guide-answer-list dd>button{color:#ffd8d5}
+
+/* Vivid brand red, sampled directly from the logo. */
+.guide-primary,.guide-primary:hover{color:#20191c}
+.mfc-guide .guide-topic-pillar,.mfc-guide .guide-sidebar{color:#20191c}
+.guide-topic-pillar .guide-topic-label,.guide-topic-pillar>p,.guide-topic-pillar .guide-topic-index,.guide-topic-pillar .guide-topic-enter svg,.guide-topic-pillar .guide-topic-icon{color:#251d20}
+.guide-topic-pillar .guide-topic-enter,.guide-topic-pillar .guide-topic-icon{border-color:#20191c33}
+.guide-sidebar>.guide-kicker,.guide-sidebar-summary>.guide-kicker,.guide-sidebar>p,.guide-sidebar-summary>p,.guide-sidebar .guide-stages>li,.guide-sidebar .guide-stages .is-current,.guide-sidebar .guide-stages .is-complete,.guide-sidebar .guide-answer-list dt,.guide-sidebar .guide-answer-list dd,.guide-sidebar .guide-answer-list dd>button,.guide-sidebar .guide-adviser small{color:#251d20}
+.guide-sidebar-icon{color:#251d20;background:#fff3;border-color:#20191c33}
+.guide-sidebar .guide-stages,.guide-sidebar .guide-answer-list>div,.guide-sidebar .guide-adviser{border-color:#20191c33}
+.guide-sidebar .guide-stage-dot{border-color:#251d20}
+.guide-sidebar .guide-stages .is-current>.guide-stage-dot{background:#251d20;border-color:#ffaaaa;box-shadow:0 0 0 1px #251d20}
+.guide-sidebar .guide-adviser-avatar{background:#fff;color:#251d20}
+.guide-kicker,.guide-topic-label{color:#b91c1c}
+.guide-choice.is-selected .guide-choice-check{background:#ff3131;border-color:#ff3131;color:#20191c}

@@ -346,7 +346,7 @@ const Header = ({ showToast }) => {
             <a
               href="https://wa.me/41797896193?text=Bonjour%20Christian%2C%20j%27aimerais%20un%20conseil."
               target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl bg-[#bd202e] px-4 py-3 text-sm font-bold text-white hover:bg-[#9c1a27] transition"
+              className="inline-flex items-center gap-2 rounded-xl bg-[#ff3131] px-4 py-3 text-sm font-bold text-[#20191c] hover:bg-[#eb2424] transition"
             >
               <MessageCircle className="h-4 w-4" /> Parler à Christian
             </a>
@@ -525,7 +525,7 @@ const Header = ({ showToast }) => {
                   <a
                     href="https://wa.me/41797896193?text=Bonjour%20Christian%2C%20j%27aimerais%20un%20conseil."
                     target="_blank" rel="noopener noreferrer" onClick={closeAll}
-                    className="flex items-center justify-center gap-2 w-full rounded-xl bg-[#bd202e] px-4 py-4 font-bold text-white"
+                    className="flex items-center justify-center gap-2 w-full rounded-xl bg-[#ff3131] px-4 py-4 font-bold text-[#20191c]"
                   >
                     <MessageCircle className="h-5 w-5" /> Parler à Christian
                   </a>
