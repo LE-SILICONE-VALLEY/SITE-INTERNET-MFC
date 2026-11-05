@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link, useSearchParams, useNavigate } from 'react-router-dom';
+import { Link, useSearchParams, useNavigate, useLocation } from 'react-router-dom';
 import { ArrowRight, ArrowLeft, Check, MessageCircle, RotateCcw, ShieldCheck, Sprout, HeartPulse, FileText, Compass, LockKeyhole, Pencil, Download, ChevronRight, CheckCircle2 } from 'lucide-react';
 import { journeys, getQuestions, suggestTopics, getGuidance, buildSummary } from '@/data/guidedJourney';
 import './GuidedHome.css';
@@ -41,6 +41,7 @@ const directContact = 'https://wa.me/41797896193?text=Bonjour%20Christian%2C%20j
 export default function GuidedHome() {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
+  const location = useLocation();
   const [topic, setTopic] = useState(() => Object.prototype.hasOwnProperty.call(journeys, searchParams.get('parcours')) ? searchParams.get('parcours') : null);
   const [answers, setAnswers] = useState({});
   const [step, setStep] = useState(0);
@@ -72,7 +73,8 @@ export default function GuidedHome() {
   useEffect(() => {
     const key = searchParams.get('parcours');
     if (Object.prototype.hasOwnProperty.call(journeys, key)) start(key);
-  }, [searchParams]);
+    else reset();
+  }, [location.key]);
   useEffect(() => { if (done) trackFunnel('journey_complete'); }, [done]);
 
   function start(key) {
