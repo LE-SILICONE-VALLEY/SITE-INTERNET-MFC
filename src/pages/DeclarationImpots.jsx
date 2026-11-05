@@ -1,3 +1,4 @@
+import EditorialImage from '@/components/sections/EditorialImage';
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -92,7 +93,7 @@ const initialFormData = {
 function SummaryCard({ label, value, tone = "default", subtext = "", icon = null }) {
   const toneClass =
     tone === "orange"
-      ? "border-orange-200 bg-orange-50"
+      ? "border-red-200 bg-red-50"
       : tone === "green"
       ? "border-green-200 bg-green-50"
       : tone === "red"
@@ -101,7 +102,7 @@ function SummaryCard({ label, value, tone = "default", subtext = "", icon = null
 
   const valueClass =
     tone === "orange"
-      ? "text-orange-700"
+      ? "text-red-700"
       : tone === "green"
       ? "text-green-700"
       : tone === "red"
@@ -110,7 +111,7 @@ function SummaryCard({ label, value, tone = "default", subtext = "", icon = null
 
   const labelClass =
     tone === "orange"
-      ? "text-orange-700"
+      ? "text-red-700"
       : tone === "green"
       ? "text-green-700"
       : tone === "red"
@@ -135,7 +136,7 @@ function SectionTitle({ eyebrow, title, description }) {
   return (
     <div>
       {eyebrow ? (
-        <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-600">{eyebrow}</p>
+        <p className="text-xs font-bold uppercase tracking-[0.2em] text-red-600">{eyebrow}</p>
       ) : null}
       <h3 className="mt-2 text-2xl font-black text-slate-900 md:text-3xl">{title}</h3>
       {description ? <p className="mt-2 max-w-3xl text-slate-600">{description}</p> : null}
@@ -147,7 +148,7 @@ function SmartHint({ children }) {
   if (!children) return null;
 
   return (
-    <div className="mt-4 rounded-2xl border border-orange-200 bg-orange-50 px-4 py-3 text-sm text-orange-800">
+    <div className="mt-4 rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
       <div className="flex items-start gap-2">
         <Bot className="mt-0.5 h-4 w-4 shrink-0" />
         <p className="leading-6">{children}</p>
@@ -163,8 +164,8 @@ function ChoicePill({ active, onClick, children }) {
       onClick={onClick}
       className={`rounded-full border px-4 py-2 text-sm font-semibold transition ${
         active
-          ? "border-orange-300 bg-orange-50 text-orange-700 ring-4 ring-orange-100"
-          : "border-slate-200 bg-white text-slate-700 hover:border-orange-200 hover:text-orange-700"
+          ? "border-red-300 bg-red-50 text-red-700 ring-4 ring-red-100"
+          : "border-slate-200 bg-white text-slate-700 hover:border-red-200 hover:text-red-700"
       }`}
     >
       {children}
@@ -179,15 +180,15 @@ function OptionCard({ active, title, description, onClick, icon = null }) {
       onClick={onClick}
       className={`w-full rounded-3xl border p-4 text-left transition ${
         active
-          ? "border-orange-300 bg-orange-50 ring-4 ring-orange-100"
-          : "border-slate-200 bg-white hover:border-orange-200 hover:bg-slate-50"
+          ? "border-red-300 bg-red-50 ring-4 ring-red-100"
+          : "border-slate-200 bg-white hover:border-red-200 hover:bg-slate-50"
       }`}
     >
       <div className="flex items-start gap-3">
         {icon ? (
           <div
             className={`flex h-10 w-10 items-center justify-center rounded-2xl ${
-              active ? "bg-white text-orange-600" : "bg-slate-100 text-slate-500"
+              active ? "bg-white text-red-600" : "bg-slate-100 text-slate-500"
             }`}
           >
             {icon}
@@ -214,7 +215,7 @@ function SuggestionChips({ title, suggestions = [], onPick }) {
             key={item.label}
             type="button"
             onClick={() => onPick?.(item)}
-            className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 transition hover:border-orange-300 hover:text-orange-700"
+            className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 transition hover:border-red-300 hover:text-red-700"
           >
             {item.label}
           </button>
@@ -247,7 +248,7 @@ export default function DeclarationImpots() {
   const inputBaseClass =
     "mt-2 w-full rounded-2xl border bg-white px-4 py-3.5 text-sm text-slate-900 outline-none transition placeholder:text-slate-400";
   const inputNormalClass =
-    "border-slate-300 focus:border-orange-500 focus:ring-4 focus:ring-orange-100";
+    "border-slate-300 focus:border-red-500 focus:ring-4 focus:ring-red-100";
   const inputErrorClass =
     "border-red-400 focus:border-red-500 focus:ring-4 focus:ring-red-100";
   const labelClassName = "text-sm font-semibold text-slate-800";
@@ -920,15 +921,15 @@ export default function DeclarationImpots() {
     return (
       <div
         ref={topRef}
-        className="min-h-screen bg-gradient-to-b from-white via-orange-50/30 to-white px-4 py-20 sm:px-6"
+        className="min-h-screen bg-gradient-to-b from-white via-red-50/30 to-white px-4 py-20 sm:px-6"
       >
         <div className="mx-auto max-w-5xl">
           <motion.div
-            className="overflow-hidden rounded-[32px] border border-orange-100 bg-white shadow-[0_20px_60px_rgba(15,23,42,0.08)]"
+            className="overflow-hidden rounded-[32px] border border-red-100 bg-white shadow-[0_20px_60px_rgba(15,23,42,0.08)]"
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <div className="border-b border-orange-100 bg-gradient-to-r from-orange-500 to-orange-600 px-6 py-8 text-white md:px-10">
+            <div className="border-b border-red-100 bg-gradient-to-r from-red-500 to-red-600 px-6 py-8 text-white md:px-10">
               <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                 <div>
                   <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
@@ -938,12 +939,12 @@ export default function DeclarationImpots() {
                   <h1 className="mt-4 text-3xl font-black md:text-4xl">
                     Merci, votre estimation détaillée est maintenant disponible
                   </h1>
-                  <p className="mt-3 max-w-2xl text-sm leading-6 text-orange-50 md:text-base">
+                  <p className="mt-3 max-w-2xl text-sm leading-6 text-red-50 md:text-base">
                     Votre dossier est bien enregistré. Vous pouvez consulter votre estimation indicative ci-dessous, puis choisir un rendez-vous ou un échange rapide avec un conseiller.
                   </p>
                 </div>
                 <div className="rounded-3xl bg-white/10 p-4 backdrop-blur">
-                  <p className="text-xs uppercase tracking-wide text-orange-100">Suivi préféré</p>
+                  <p className="text-xs uppercase tracking-wide text-red-100">Suivi préféré</p>
                   <p className="mt-1 text-lg font-bold text-white">{contactPreference}</p>
                 </div>
               </div>
@@ -1003,21 +1004,21 @@ export default function DeclarationImpots() {
               </div>
 
               <div className="mt-8 grid gap-6 lg:grid-cols-[1.3fr_0.9fr]">
-                <div className="rounded-3xl border border-orange-200 bg-orange-50 p-6">
+                <div className="rounded-3xl border border-red-200 bg-red-50 p-6">
                   <h2 className="text-xl font-black text-slate-900">Ce que cela signifie pour vous</h2>
                   <p className="mt-3 text-sm leading-6 text-slate-700">{estimation.recommandation}</p>
 
                   <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                    <div className="rounded-2xl border border-orange-200 bg-white p-4">
-                      <p className="text-xs font-semibold uppercase tracking-wide text-orange-600">Ce que le conseiller vérifie</p>
+                    <div className="rounded-2xl border border-red-200 bg-white p-4">
+                      <p className="text-xs font-semibold uppercase tracking-wide text-red-600">Ce que le conseiller vérifie</p>
                       <ul className="mt-3 space-y-2 text-sm text-slate-700">
                         <li>• cohérence DRIS / TOU / ordinaire</li>
                         <li>• déductions réellement admises</li>
                         <li>• pistes d’optimisation concrètes</li>
                       </ul>
                     </div>
-                    <div className="rounded-2xl border border-orange-200 bg-white p-4">
-                      <p className="text-xs font-semibold uppercase tracking-wide text-orange-600">Prochaine étape</p>
+                    <div className="rounded-2xl border border-red-200 bg-white p-4">
+                      <p className="text-xs font-semibold uppercase tracking-wide text-red-600">Prochaine étape</p>
                       <p className="mt-3 text-sm leading-6 text-slate-700">
                         Votre dossier peut maintenant être rappelé, relu puis transformé en rendez-vous utile si nécessaire.
                       </p>
@@ -1031,7 +1032,7 @@ export default function DeclarationImpots() {
                     <button
                       type="button"
                       onClick={openCalendly}
-                      className="inline-flex items-center justify-center gap-2 rounded-2xl bg-orange-600 px-5 py-3.5 text-sm font-bold text-white transition hover:bg-orange-700"
+                      className="inline-flex items-center justify-center gap-2 rounded-2xl bg-red-600 px-5 py-3.5 text-sm font-bold text-white transition hover:bg-red-700"
                     >
                       <Calendar className="h-4 w-4" />
                       Prendre rendez-vous
@@ -1095,7 +1096,7 @@ export default function DeclarationImpots() {
 
   return (
     <div ref={topRef} className="min-h-screen bg-white">
-      <section className="px-4 pb-10 pt-24 sm:px-6 md:pt-28">
+      <section className="px-4 pb-10 pt-12 sm:px-6 md:pt-16">
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
             <motion.h1
@@ -1104,7 +1105,7 @@ export default function DeclarationImpots() {
               animate={{ opacity: 1, y: 0 }}
             >
               Simulateur impôts
-              <span className="mt-1 block text-orange-600">Genève, Vaud, Taxe ordinaire & Impôt à la source</span>
+              <span className="mt-1 block text-red-600">Genève, Vaud, Taxe ordinaire & Impôt à la source</span>
             </motion.h1>
 
             <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-slate-600 md:text-lg">
@@ -1112,6 +1113,7 @@ export default function DeclarationImpots() {
             </p>
           </div>
 
+          <EditorialImage src="/conseiller-geneve.jpg" alt="Deux personnes échangent autour d’un ordinateur dans un espace lumineux" caption="Votre dossier, vos questions : avançons ensemble, étape par étape." className="mfc-editorial-tax" />
           <div className="mt-8 grid gap-4 lg:grid-cols-3">
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5">
               <p className="text-sm font-semibold text-slate-900">Simple à remplir</p>
@@ -1120,12 +1122,12 @@ export default function DeclarationImpots() {
               </p>
             </div>
 
-            <div className="rounded-3xl border border-orange-200 bg-orange-50 p-5">
-              <p className="flex items-center gap-2 text-sm font-semibold text-orange-800">
+            <div className="rounded-3xl border border-red-200 bg-red-50 p-5">
+              <p className="flex items-center gap-2 text-sm font-semibold text-red-800">
                 <Sparkles className="h-4 w-4" />
                 Plus ludique
               </p>
-              <p className="mt-2 text-sm text-orange-700">
+              <p className="mt-2 text-sm text-red-700">
                 Le formulaire guide naturellement sans complication.
               </p>
             </div>
@@ -1141,7 +1143,7 @@ export default function DeclarationImpots() {
           <div className="mt-8 rounded-[28px] border border-slate-200 bg-gradient-to-r from-slate-50 to-white p-5 lg:p-6">
             <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
               <div>
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-600">
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-red-600">
                   Parcours intelligent
                 </p>
                 <h2 className="mt-2 text-xl font-black text-slate-900 md:text-2xl">
@@ -1152,9 +1154,9 @@ export default function DeclarationImpots() {
                 </p>
               </div>
 
-              <div className="rounded-3xl border border-orange-200 bg-orange-50 px-5 py-4">
-                <p className="text-xs font-semibold uppercase tracking-wide text-orange-700">Dossier complété</p>
-                <div className="mt-1 text-3xl font-black text-orange-600">{completionStats.percentage}%</div>
+              <div className="rounded-3xl border border-red-200 bg-red-50 px-5 py-4">
+                <p className="text-xs font-semibold uppercase tracking-wide text-red-700">Dossier complété</p>
+                <div className="mt-1 text-3xl font-black text-red-600">{completionStats.percentage}%</div>
               </div>
             </div>
           </div>
@@ -1162,7 +1164,7 @@ export default function DeclarationImpots() {
           <div className="mt-8 rounded-3xl border border-slate-200 bg-slate-50 p-4 lg:hidden">
             <div className="flex items-center justify-between gap-4">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-wide text-orange-600">Progression</p>
+                <p className="text-xs font-semibold uppercase tracking-wide text-red-600">Progression</p>
                 <p className="mt-1 text-sm font-semibold text-slate-900">
                   Étape {currentStep} sur {steps.length} — {steps[currentStep - 1]}
                 </p>
@@ -1174,7 +1176,7 @@ export default function DeclarationImpots() {
 
             <div className="mt-4 h-2 w-full overflow-hidden rounded-full bg-slate-200">
               <div
-                className="h-full rounded-full bg-orange-600 transition-all duration-300"
+                className="h-full rounded-full bg-red-600 transition-all duration-300"
                 style={{ width: `${stepProgress}%` }}
               />
             </div>
@@ -1192,7 +1194,7 @@ export default function DeclarationImpots() {
                       isDone
                         ? "bg-green-500 text-white"
                         : isActive
-                        ? "bg-orange-600 text-white"
+                        ? "bg-red-600 text-white"
                         : "border border-slate-200 bg-white text-slate-600"
                     }`}
                     title={step}
@@ -1211,7 +1213,7 @@ export default function DeclarationImpots() {
           <aside className="hidden lg:block">
             <div className="sticky top-24 rounded-[28px] border border-slate-200 bg-slate-50 p-6">
               <div className="mb-6">
-                <p className="text-sm font-semibold text-orange-600">Progression</p>
+                <p className="text-sm font-semibold text-red-600">Progression</p>
                 <h2 className="mt-2 text-2xl font-bold text-slate-900">Votre dossier fiscal</h2>
                 <p className="mt-2 text-sm text-slate-500">
                   Le résultat détaillé se débloque après enregistrement du dossier.
@@ -1228,7 +1230,7 @@ export default function DeclarationImpots() {
                     <div
                       key={step}
                       className={`flex items-center gap-3 rounded-2xl px-4 py-3 transition ${
-                        isActive ? "border border-orange-200 bg-white shadow-sm" : "bg-transparent"
+                        isActive ? "border border-red-200 bg-white shadow-sm" : "bg-transparent"
                       }`}
                     >
                       <div
@@ -1236,7 +1238,7 @@ export default function DeclarationImpots() {
                           isDone
                             ? "bg-green-500 text-white"
                             : isActive
-                            ? "bg-orange-600 text-white"
+                            ? "bg-red-600 text-white"
                             : "bg-slate-200 text-slate-700"
                         }`}
                       >
@@ -1252,9 +1254,9 @@ export default function DeclarationImpots() {
                 })}
               </div>
 
-              <div className="mt-8 rounded-2xl border border-orange-200 bg-white p-5">
+              <div className="mt-8 rounded-2xl border border-red-200 bg-white p-5">
                 <p className="text-sm text-slate-500">Potentiel détecté</p>
-                <div className="mt-1 text-3xl font-black text-orange-600">{estimation.niveauOptimisation}</div>
+                <div className="mt-1 text-3xl font-black text-red-600">{estimation.niveauOptimisation}</div>
                 <p className="mt-2 text-sm text-slate-600">
                   Une relecture par un conseiller peut affiner le résultat.
                 </p>
@@ -1656,7 +1658,7 @@ export default function DeclarationImpots() {
                             key={item.label}
                             type="button"
                             onClick={() => updateField(item.field, item.value)}
-                            className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 transition hover:border-orange-300 hover:text-orange-700"
+                            className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 transition hover:border-red-300 hover:text-red-700"
                           >
                             {item.label}
                           </button>
@@ -1899,9 +1901,9 @@ export default function DeclarationImpots() {
                       description=""
                     />
 
-                    <div className="mt-6 rounded-3xl border border-orange-200 bg-orange-50 p-5 md:p-6">
+                    <div className="mt-6 rounded-3xl border border-red-200 bg-red-50 p-5 md:p-6">
                       <div className="flex items-start gap-3">
-                        <Sparkles className="mt-0.5 h-5 w-5 text-orange-600" />
+                        <Sparkles className="mt-0.5 h-5 w-5 text-red-600" />
                         <div>
                           <h4 className="text-lg font-bold text-slate-900">
                             Résultat détaillé débloqué après l’enregistrement
@@ -1969,7 +1971,7 @@ export default function DeclarationImpots() {
                             multiple
                             accept=".pdf,.jpg,.jpeg,.png,.webp"
                             onChange={handleFileChange}
-                            className="block w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-700 file:mr-4 file:rounded-xl file:border-0 file:bg-orange-50 file:px-4 file:py-2.5 file:text-sm file:font-semibold file:text-orange-700 hover:file:bg-orange-100"
+                            className="block w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-700 file:mr-4 file:rounded-xl file:border-0 file:bg-red-50 file:px-4 file:py-2.5 file:text-sm file:font-semibold file:text-red-700 hover:file:bg-red-100"
                           />
                           <p className="mt-3 text-xs text-slate-500">
                             Formats acceptés : PDF, JPG, PNG, WEBP.
@@ -2034,8 +2036,8 @@ export default function DeclarationImpots() {
                               onClick={() => setContactPreference(option)}
                               className={`rounded-2xl border px-4 py-3 text-left text-sm font-semibold transition ${
                                 contactPreference === option
-                                  ? "border-orange-300 bg-white text-orange-700 ring-4 ring-orange-100"
-                                  : "border-slate-200 bg-white text-slate-700 hover:border-orange-200"
+                                  ? "border-red-300 bg-white text-red-700 ring-4 ring-red-100"
+                                  : "border-slate-200 bg-white text-slate-700 hover:border-red-200"
                               }`}
                             >
                               {option}
@@ -2064,7 +2066,7 @@ export default function DeclarationImpots() {
                                   consentContact: true,
                                 }))
                               }
-                              className="mt-1 h-4 w-4 rounded border-slate-300 text-orange-600 focus:ring-orange-500"
+                              className="mt-1 h-4 w-4 rounded border-slate-300 text-red-600 focus:ring-red-500"
                             />
                             <span className="text-sm leading-6 text-slate-700">
                               J’accepte d’être recontacté pour le suivi de mon dossier et, si besoin, une proposition d’analyse adaptée à ma situation.
@@ -2128,8 +2130,8 @@ export default function DeclarationImpots() {
                   disabled={isSaving}
                   className={`inline-flex items-center gap-2 rounded-2xl px-6 py-3 text-sm font-bold text-white transition ${
                     isSaving
-                      ? "cursor-not-allowed bg-orange-300"
-                      : "bg-orange-600 hover:bg-orange-700"
+                      ? "cursor-not-allowed bg-red-300"
+                      : "bg-red-600 hover:bg-red-700"
                   }`}
                 >
                   {isSaving ? "Enregistrement en cours..." : "Enregistrer et voir mon résultat"}
@@ -2141,8 +2143,8 @@ export default function DeclarationImpots() {
                   disabled={isSaving}
                   className={`inline-flex items-center gap-2 rounded-2xl px-5 py-3 text-sm font-semibold transition ${
                     isSaving
-                      ? "cursor-not-allowed bg-orange-300 text-white"
-                      : "bg-orange-600 text-white hover:bg-orange-700"
+                      ? "cursor-not-allowed bg-red-300 text-white"
+                      : "bg-red-600 text-white hover:bg-red-700"
                   }`}
                 >
                   Continuer
@@ -2177,8 +2179,8 @@ export default function DeclarationImpots() {
               disabled={isSaving}
               className={`flex-[1.5] rounded-2xl px-4 py-3 text-sm font-bold text-white transition ${
                 isSaving
-                  ? "cursor-not-allowed bg-orange-300"
-                  : "bg-orange-600 hover:bg-orange-700"
+                  ? "cursor-not-allowed bg-red-300"
+                  : "bg-red-600 hover:bg-red-700"
               }`}
             >
               {isSaving ? "Enregistrement..." : "Voir mon résultat"}
@@ -2190,8 +2192,8 @@ export default function DeclarationImpots() {
               disabled={isSaving}
               className={`flex-[1.5] rounded-2xl px-4 py-3 text-sm font-bold text-white transition ${
                 isSaving
-                  ? "cursor-not-allowed bg-orange-300"
-                  : "bg-orange-600 hover:bg-orange-700"
+                  ? "cursor-not-allowed bg-red-300"
+                  : "bg-red-600 hover:bg-red-700"
               }`}
             >
               Continuer

@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {trackFunnel,campaignSource} from '../src/lib/funnel.js';
+import {CONSENT_KEY} from '../src/lib/leadTracking.js';
+const memory=new Map(),session=new Map(),events=[];
+globalThis.localStorage={getItem:k=>memory.get(k)||null,setItem:(k,v)=>memory.set(k,v)};
+globalThis.sessionStorage={getItem:k=>session.get(k)||null,setItem:(k,v)=>session.set(k,v),removeItem:k=>session.delete(k)};
+globalThis.window={location:{search:'?utm_source=google&email=private@example.com'},gtag:(...args)=>events.push(args)};
+globalThis.document={createElement:()=>({dataset:{}}),head:{appendChild:()=>{}}};
+test('No advertising events or attribution storage before consent',()=>{memory.clear();session.clear();events.length=0;trackFunnel('journey_start');assert.equal(events.length,0);assert.equal(campaignSource(),'Non mesurée');assert.equal(session.size,0);});
+test('Only fixed event names and numeric steps leave the browser after agreement',()=>{memory.set(CONSENT_KEY,'granted');events.length=0;trackFunnel('private@example.com');assert.equal(events.length,0);trackFunnel('journey_step',2);const event=events.find(e=>e[0]==='event');assert.deepEqual(event,['event','journey_step',{funnel:'mfc_2026',funnel_step:2}]);});
+test('Attribution survives navigation but stores only approved source names',()=>{assert.equal(campaignSource(),'google');window.location.search='';assert.equal(campaignSource(),'google');window.location.search='?utm_source=private@example.com';assert.equal(campaignSource(),'google');assert.equal(session.size,1);memory.set(CONSENT_KEY,'denied');assert.equal(campaignSource(),'Non mesurée');assert.equal(session.size,0);});

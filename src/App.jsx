@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, lazy, Suspense } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -17,21 +17,24 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ScrollToTop from "@/components/layout/ScrollToTop";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
-import LeadCapturePopup from "@/components/layout/LeadCapturePopup";
+import { campaignSource } from '@/lib/funnel';
 
 import Home from "@/pages/Home";
-import AboutPage from "@/pages/AboutPage";
-import PartnersPage from "@/pages/PartnersPage";
-import ComparatorPage from "@/pages/ComparatorPage";
-import InsurancePage from "@/pages/InsurancePage";
-import EngagementPage from "@/pages/EngagementPage";
-import CollectiveDiscountPage from "@/pages/CollectiveDiscountPage";
-import DeclarationImpots from "@/pages/DeclarationImpots";
-import AdminFiscalDashboard from "@/pages/AdminFiscalDashboard";
-import AdminFiscalDetail from "@/pages/AdminFiscalDetail";
-import AdminComparatorDashboard from "@/pages/AdminComparatorDashboard";
-import CabinetLogin from "@/pages/CabinetLogin";
-import SubsidyHelpPage from "@/pages/SubsidyHelpPage";
+const AboutPage = lazy(() => import('@/pages/AboutPage'));
+const PartnersPage = lazy(() => import('@/pages/PartnersPage'));
+const ComparatorPage = lazy(() => import('@/pages/ComparatorPage'));
+const InsurancePage = lazy(() => import('@/pages/InsurancePage'));
+const EngagementPage = lazy(() => import('@/pages/EngagementPage'));
+const CollectiveDiscountPage = lazy(() => import('@/pages/CollectiveDiscountPage'));
+const DeclarationImpots = lazy(() => import('@/pages/DeclarationImpots'));
+const AdminFiscalDashboard = lazy(() => import('@/pages/AdminFiscalDashboard'));
+const AdminFiscalDetail = lazy(() => import('@/pages/AdminFiscalDetail'));
+const AdminComparatorDashboard = lazy(() => import('@/pages/AdminComparatorDashboard'));
+const CabinetLogin = lazy(() => import('@/pages/CabinetLogin'));
+const SubsidyHelpPage = lazy(() => import('@/pages/SubsidyHelpPage'));
+const LamalCompare = lazy(() => import('@/pages/LamalCompare'));
+const Privacy = lazy(() => import('@/pages/Privacy'));
+import '@/premium.css';
 import AdsConsent from "@/components/layout/AdsConsent";
 
 const ThemeInjector = () => {
@@ -92,6 +95,7 @@ const ProtectedAdminRoute = ({ children }) => {
 
 const PageLayout = () => {
   const location = useLocation();
+  useEffect(() => { campaignSource(); }, [location.search]);
   const { toast } = useToast();
 
   const showToast = (options = {}) => {
@@ -125,18 +129,13 @@ const PageLayout = () => {
       <div className="flex min-h-screen flex-col bg-white text-gray-800">
         <Header showToast={showToast} />
 
-        {!['/aide-subside', '/comparaison-lamal'].includes(location.pathname) && <LeadCapturePopup
-          delayMs={10000}
-          storageKey="mfc_lead_popup_dismissed_v2"
-        />}
-
         <main className="flex-grow pt-20">
-          {['/', '/aide-subside', '/comparaison-lamal'].includes(location.pathname) && <nav aria-label="Assurance maladie et subsides" className="mfc-service-nav"><a href="/comparaison-lamal" aria-current={location.pathname === '/comparaison-lamal' ? 'page' : undefined}>Comparer ma LAMal</a><a href="/aide-subside" aria-current={location.pathname === '/aide-subside' ? 'page' : undefined}>Aide gratuite aux subsides</a></nav>}
-          <AnimatePresence mode="wait">
+          <Suspense fallback={<div className="premium-container" role="status" style={{paddingTop:80,paddingBottom:80}}>Chargement de votre espace…</div>}><AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
               <Route path="/" element={<Home showToast={showToast} />} />
+              <Route path="/confidentialite" element={<Privacy />} />
               <Route path="/aide-subside" element={<SubsidyHelpPage />} />
-              <Route path="/comparaison-lamal" element={<SubsidyHelpPage service="lamal" />} />
+              <Route path="/comparaison-lamal" element={<LamalCompare />} />
               <Route path="/comparateur/assurance-maladie" element={<Navigate to="/comparaison-lamal" replace />} />
               <Route path="/a-propos" element={<AboutPage />} />
               <Route path="/engagement" element={<EngagementPage />} />
@@ -149,6 +148,7 @@ const PageLayout = () => {
                 path="/declaration-impots"
                 element={<DeclarationImpots />}
               />
+              <Route path="*" element={<Navigate to="/" replace />} />
               <Route path="/cabinet-login" element={<CabinetLogin />} />
 
               <Route
@@ -185,11 +185,11 @@ const PageLayout = () => {
                 element={<InsurancePage showToast={showToast} />}
               />
             </Routes>
-          </AnimatePresence>
+          </AnimatePresence></Suspense>
         </main>
 
         <Footer showToast={showToast} />
-        {siteConfig.whatsapp.enabled && !['/aide-subside', '/comparaison-lamal'].includes(location.pathname) && <WhatsAppButton />}
+        {siteConfig.whatsapp.enabled && !['/', '/aide-subside', '/comparaison-lamal'].includes(location.pathname) && <WhatsAppButton />}
       </div>
     </>
   );

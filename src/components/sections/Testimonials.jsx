@@ -6,6 +6,7 @@ import siteConfig from '@/config/siteConfig';
 const Testimonials = () => {
   const { testimonialsSection } = siteConfig.homePage;
 
+  if (!testimonialsSection?.testimonials?.length) return null;
   return (
     <section className="section-padding bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -15,7 +16,7 @@ const Testimonials = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
         >
-          <span className="text-orange-600 font-semibold">{testimonialsSection.tagline}</span>
+          <span className="text-red-600 font-semibold">{testimonialsSection.tagline}</span>
           <h2 className="text-4xl font-bold text-gray-900 mt-2 mb-4">{testimonialsSection.title}</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             {testimonialsSection.description}
@@ -26,13 +27,13 @@ const Testimonials = () => {
           {testimonialsSection.testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
-              className="bg-orange-50/50 rounded-2xl p-8 card-hover relative overflow-hidden"
+              className="bg-red-50/50 rounded-2xl p-8 card-hover relative overflow-hidden"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ delay: index * 0.15, duration: 0.5 }}
             >
-              <Quote className="absolute top-6 right-6 h-16 w-16 text-orange-200/50" />
+              <Quote className="absolute top-6 right-6 h-16 w-16 text-red-200/50" />
               <div className="relative z-10">
                 <div className="flex items-center mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (

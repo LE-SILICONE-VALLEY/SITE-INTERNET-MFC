@@ -4,7 +4,7 @@ const homePage = {
   newHero: {
     title: "Votre Assurance, Simplifiée & Optimisée.",
     subtitle:
-      "Conseils experts à Genève et Vaud pour des économies maximales. Comparez, optimisez et payez enfin le juste prix.",
+      "Assurance et prévoyance à Genève et Vaud : des réponses claires et un accompagnement adapté.",
     secondaryCta: {
       text: "Comparer mon assurance",
       path: "comparateur/assurance-maladie",
@@ -59,10 +59,10 @@ const homePage = {
       },
       {
         icon: "Home",
-        title: "Hypothèque & Habitat",
+        title: "Assurances habitation",
         description:
-          "Accédez à la propriété avec les meilleures conditions du marché.",
-        linkText: "Mon projet immobilier",
+          "Protégez votre logement et votre bâtiment avec des garanties adaptées.",
+        linkText: "Protéger mon logement",
         path: "assurances/habitat/assurance-batiment",
       },
       {
@@ -71,7 +71,7 @@ const homePage = {
         description:
           "Sécurisez votre famille et votre patrimoine efficacement.",
         linkText: "Sécuriser ma famille",
-        path: "assurances/particulier/assurance-automobile",
+        path: "assurances/particulier/rc-privee",
       },
       {
         icon: "Car",
@@ -102,32 +102,7 @@ const homePage = {
     ],
   },
 
-  testimonialsSection: {
-    tagline: "La parole à nos clients",
-    title: "Ils nous font confiance",
-    description:
-      "Nos clients en Suisse romande nous recommandent pour notre efficacité et notre transparence.",
-    testimonials: [
-      {
-        name: "Céline B.",
-        role: "Architecte, Genève",
-        content: "+1200 CHF économisés par an. Service rapide et efficace.",
-        rating: 5,
-      },
-      {
-        name: "Julien M.",
-        role: "Entrepreneur, Lausanne",
-        content: "Simple, rapide, efficace. Tout a été optimisé sans effort.",
-        rating: 5,
-      },
-      {
-        name: "Famille Rossi",
-        role: "Nyon",
-        content: "De meilleures garanties pour moins cher. Indispensable.",
-        rating: 5,
-      },
-    ],
-  },
+  testimonialsSection: { testimonials: [] },
 
   ctaSection: {
     title: "Comparez et économisez dès maintenant",
@@ -149,7 +124,7 @@ const homePage = {
         options: [
           "Assurance Maladie (LAMal)",
           "Prévoyance & 3ème Pilier",
-          "Hypothèque",
+          "Assurances habitation",
           "Assurances Entreprise",
           "Autre demande",
         ],
